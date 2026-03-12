@@ -311,13 +311,44 @@ function eToggle() {
 }
 // Fullscreen
 function FS() {
-  // Toggle CSS-based pseudo-fullscreen so we can always show an on-screen exit button
-  document.body.classList.toggle("fullscreen");
+  const activeIframe = document.querySelector("#frame-container iframe.active");
+  if (!activeIframe) {
+    console.error("No active iframe found");
+    return;
+  }
+
+  const iframeDoc = activeIframe.contentDocument;
+  if (!iframeDoc) {
+    console.error("No iframe document found");
+    return;
+  }
+
+  if (document.fullscreenElement) {
+    document.exitFullscreen().catch(() => {});
+  } else if (iframeDoc.documentElement.requestFullscreen) {
+    iframeDoc.documentElement.requestFullscreen().catch(err => {
+      console.error("Error requesting fullscreen:", err);
+    });
+  }
 }
 
 function exitFS() {
-  document.body.classList.remove("fullscreen");
+  if (document.fullscreenElement) {
+    document.exitFullscreen().catch(() => {});
+  } else {
+    document.body.classList.remove("fullscreen");
+  }
 }
+
+// Keep body class in sync so CSS (nav hide + exit button) works
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement) {
+    document.body.classList.add("fullscreen");
+  } else {
+    document.body.classList.remove("fullscreen");
+  }
+});
+
 const fullscreenButton = document.getElementById("fullscreen-button");
 fullscreenButton.addEventListener("click", FS);
 // Home
