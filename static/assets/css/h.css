@@ -1,0 +1,124 @@
+.center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.title {
+   font-size: 10vh;
+   color: var(--text-primary);
+   font-family: "Inter", sans-serif;
+   text-align: center;
+   text-transform: uppercase;
+   border-radius: 0px 0px 5px 5px;
+   margin-top: 30vh;
+   margin-bottom: 5vh;
+   transition: 0.35s ease;
+   text-shadow: 2px 4px 6px rgb(0, 0, 0, 0.2);
+}
+
+.title:hover {
+   transform: translateY(-5%) scale(1.03);
+   font-weight: 800;
+}
+
+@media (orientation: portrait) {
+   .title {
+      position: relative;
+      top: -10vw;
+      font-size: 10vw;
+      color: var(--text-primary);
+      font-family: "Inter", sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 0px 0px 5px 5px;
+   }
+}
+
+.search-container {
+   display: flex;
+   width: 100%;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+}
+
+.truncate {
+   letter-spacing: 2px;
+   font-size: 18px;
+   box-sizing: border-box;
+   
+   /* liquid glass ana ayarları */
+   background: rgba(255, 255, 255, 0.03); /* çok hafif şeffaf beyaz */
+   backdrop-filter: blur(15px) saturate(180%);
+   -webkit-backdrop-filter: blur(15px) saturate(180%);
+   
+   /* ince cam kenarlığı ve gölge */
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+   
+   transition: all 0.35s ease;
+   border-radius: 16px;
+   margin: 15px;
+   width: 50vw;
+   height: 8vh;
+   font-family: "Poppins", sans-serif;
+   
+   /* flex ekleyerek içeriği ortalayalım */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: white;
+}
+
+.truncate:hover {
+  border-color: #8a2be2; /* Parlak mor bir kenarlık rengi (örneğin BlueViolet) */
+   
+   /* İç ve dış olmak üzere iki katmanlı mor parlama (glow) */
+   box-shadow: 0 0 10px rgba(138, 43, 226, 0.5),  /* Dış parlama */
+               0 0 20px rgba(138, 43, 226, 0.4),  /* Daha geniş dış parlama */
+               inset 0 0 5px rgba(138, 43, 226, 0.2); /* Hafif iç parlama (derinlik için) */
+}
+
+input {
+   padding: 20px;
+   width: 550px;
+   border-radius: 14px;
+   background: var(--background-column);
+   text-align: center;
+   font-size: 24px;
+   border: none;
+   outline: none;
+   color: var(--text-primary);
+   transition: 0.4s;
+}
+
+#particles-js {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0vw;
+   background-color: var(--bg-c);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 50% 50%;
+   overflow: hidden;
+}
+
+.particles-js-canvas-el {
+   z-index: 0;
+   top: 0;
+   left: 0;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+}
+
+#splash {
+   color: var(--text-dark);
+   margin-bottom: 1em;
+   margin-top: -2em;
+   padding: 0;
+   font-family: "Poppins", sans-serif;
+}
