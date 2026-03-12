@@ -27,7 +27,8 @@ class UVServiceWorker extends EventEmitter {
           "x-powered-by",
           "x-xss-protection",
         ],
-        forward: ["accept-encoding", "connection", "content-length"],
+        // Forward additional headers needed for streaming media (e.g., YouTube)
+        forward: ["accept-encoding", "connection", "content-length", "range"],
       }),
       (this.method = { empty: ["GET", "HEAD"] }),
       (this.statusCode = { empty: [204, 304] }),

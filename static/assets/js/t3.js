@@ -1,4 +1,12 @@
 // tabs.js
+function getProxyPrefix() {
+  const dy = localStorage.getItem("dy");
+  if (dy === "true" || dy === "auto") {
+    return "/a/q/";
+  }
+  return "/a/";
+}
+
 window.addEventListener("load", () => {
   navigator.serviceWorker.register("../sw.js?v=2025-04-15", { scope: "/a/" });
   const form = document.getElementById("fv");
@@ -22,14 +30,6 @@ window.addEventListener("load", () => {
 
       processUrl(url);
     });
-  }
-
-  function getProxyPrefix() {
-    const dy = localStorage.getItem("dy");
-    if (dy === "true" || dy === "auto") {
-      return "/a/q/";
-    }
-    return "/a/";
   }
 
   function processUrl(url) {
