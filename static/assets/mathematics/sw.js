@@ -28,7 +28,7 @@ class UVServiceWorker extends EventEmitter {
           "x-xss-protection",
         ],
         // Forward additional headers needed for streaming media (e.g., YouTube)
-        forward: ["accept-encoding", "connection", "content-length", "range"],
+        forward: ["accept-encoding", "connection", "content-length", "range", "x-goog-authuser", "priority", "sec-ch-ua", "sec-ch-ua-mobile", "sec-ch-ua-platform"],
       }),
       (this.method = { empty: ["GET", "HEAD"] }),
       (this.statusCode = { empty: [204, 304] }),
@@ -208,7 +208,7 @@ class RequestContext {
     return new Request(
       this.blob
         ? "blob:" + location.origin + this.url.pathname
-        : this.address.href + "v1/",
+        : this.address.href + "v3/",
       {
         method: this.method,
         headers: {
