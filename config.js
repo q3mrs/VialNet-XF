@@ -4,7 +4,7 @@ const config = {
     // You can add multiple users by doing username: 'password'.
     interstellar: "password",
   },
-  bare: "https://bare.benroberts.dev/",
+  bare: "/ca/",
 };
 
 export default config;
