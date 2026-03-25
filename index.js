@@ -71,7 +71,7 @@ app.get("/e/*", async (req, res, next) => {
     const no = [".unityweb"];
     const contentType = no.includes(ext) ? "application/octet-stream" : mime.getType(ext);
 
-    cache.set(req.path, { data, contentType, timestamp: Date.now() });
+    // cache.set(req.path, { data, contentType, timestamp: Date.now() });
     res.writeHead(200, { "Content-Type": contentType });
     res.end(data);
   } catch (error) {
