@@ -208,7 +208,7 @@ class RequestContext {
     return new Request(
       this.blob
         ? "blob:" + location.origin + this.url.pathname
-        : this.address.href + "v3/",
+        : this.address.href + "v1/",
       {
         method: this.method,
         headers: {
